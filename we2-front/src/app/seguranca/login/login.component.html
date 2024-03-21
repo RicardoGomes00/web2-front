@@ -1,0 +1,30 @@
+<div class="container d-flex justify-content-center">
+  <div class="col-4">
+    <div class="card shadow round mt-5">
+      <div class="card-header">
+        <h3 class="text-center">Lavanderia OnLine</h3>
+      </div>
+
+      <div class="card-body">
+        <form [formGroup]="formLogin">
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email">
+            <!--incluir text danger quando a parte de validação do typescript estiver pronta, só descomentar-->
+            <!-- <div class ="form-text text-danger" *ngIf="isFormControlInvalid('email')">Usuário inválido</div> -->
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input type="password" class="form-control" formControlName="password">
+            <!-- <div class ="form-text text-danger" *ngIf="isFormControlInvalid('password')">Senha inválida</div> -->
+          </div>
+            <!--ajustar espaçamento dos botões-->
+            <button type="button" class="btn btn-primary mr-20">Entrar</button>
+            <button type="button" class="btn btn-primary" (click)="onSignUpClick()">
+              Cadastrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

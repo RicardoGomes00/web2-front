@@ -1,0 +1,100 @@
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-size: 22px;
+            background: white;
+            margin: 0;
+            padding: 0;
+            color: #343a40;
+        }
+
+        #marca {
+            height: 200px;
+            background: #007bff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #marca h1 {
+            margin: 0;
+            color: white;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+
+        #navegacao {
+            background-color: #007bff;
+            padding: 30px;
+        }
+
+        #navegacao ul {
+            list-style: none;
+            padding-left:0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        #navegacao ul li {
+            margin-right: 100px;
+        }
+
+        #navegacao ul li:last-child {
+            margin-right: 0;
+        }
+
+        #navegacao ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            transition: color 0.3s;
+        }
+
+        #navegacao ul li a:hover {
+            text-decoration: underline;
+        }
+
+        #propaganda{
+            margin: 50px 10%;
+            width: 80%;
+        }
+
+        #conteudo-principal {
+            background: white;
+            padding: 20px;
+        }
+
+        #rodape {
+            background: #007bff; /* Alteração da cor de fundo */
+            color: white; /* Alteração da cor do texto */
+            padding: 20px 0;
+            
+        }
+
+        #rodape ul {
+            padding-left: 0;
+            margin-top: 10px;
+            text-align: justify;
+            display: inline-block;
+        }
+
+        #rodape ul li {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 10px;
+        }
+
+        #rodape p {
+            margin-bottom: 10px;
+        }
+
+        .carousel-item img {
+            margin: 0 auto;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .sliders{
+            width: 80%;
+        }
