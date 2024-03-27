@@ -4,11 +4,18 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-order-online',
+  standalone: true,
+  imports: [
+    CommonModule,
+    CurrencyPipe,
+  ],
   templateUrl: './order-online.component.html',
   styleUrls: ['./order-online.component.css']
 })
 
 export class OrderOnlineComponent {// não mudar os valore, senão dá pau
+
+  
   showEstimate: boolean = false;
   estimateValue: number = 0;
   estimateTime: number  = 0;

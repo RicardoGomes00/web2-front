@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -14,7 +18,6 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private toast: ToastrService,
               private router: Router) {
     this.formLogin = this.createFormLogin();
   }
