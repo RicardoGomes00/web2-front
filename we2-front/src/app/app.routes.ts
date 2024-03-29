@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
-import { LoginComponent } from './seguranca/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { OrderOnlineComponent } from './order-online/order-online.component';
 import { PaginaInicialComponent } from './pagina_inicial/pagina_inicial.component';
