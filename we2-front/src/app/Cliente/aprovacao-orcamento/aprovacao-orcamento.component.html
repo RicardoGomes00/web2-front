@@ -1,75 +1,82 @@
-<div class="container-fluid pt-5">  
-    <div class="d-flex flex-column text-center mb-5 pt-5">
-      <h1 class="display-4 m-0">Pedido de Lavanderia</h1>
+<div class="container-fluid p-4 shadow-lg rounded w-full lg:w-6" style="margin: auto;">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 mb-5">
+      <div class="card shadow round mt-5">
+            <div class="card-header">
+              <h3 class="text-center">Pedido de Lavanderia</h3>
+            </div>
+              <div class="row justify-content-center">
+                <div class="col-12 col-sm-8 mb-5">
+                  <form name = "pedido" id="pedidoform">
+                    <div class="control-group">
+                      <label for="tipo-roupa">Selecione o Tipo de Roupa:</label>
+                      <select class="form-control wide" id="tipo-roupa" name="tipo-roupa">
+                        <option selected disabled value =" ">Selecione roupa</option>
+                        <option value="calcajeans">Calça Jeans</option>
+                        <option value="camiseta">Camiseta</option>
+                        <option value="blusamoletom">Blusa Moletom</option>
+                        <option value="roupaintima">Roupa Intima</option>
+                        <option value="jaqueta">Jaqueta</option>
+                      </select>
+                      <p class="help-block text-danger"></p>
+                      <label for="quantidade">Quantidade:</label>
+                      <input class="form-control wide" type="number" id="quantidade" name="quantidade" min="1" value="1">
+                      <p class="help-block text-danger"></p>
+                    </div>
+                    <div>
+                      <button  type="submit" id="adicionar-pedido">Adicionar</button>
+                    </div>
+                  </form>
+                
+                  <div class = "d-flex flex-column text-center mb-5 pt-5">
+                    <table id="pedido-table">
+                      <thead>
+                        <tr>
+                          <th>Roupa</th>
+                          <th>Prazo (hrs)</th>
+                          <th>Quantidade</th>
+                          <th>Valor Unitário</th>
+                          <th>Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td> CAMISETA</td>
+                          <td>2</td>
+                          <td>05</td>
+                          <td>R$ 5,00</td>
+                          <td>R$ 25,00</td>
+                        </tr>
+                        <tr>
+                          <td> CALÇA</td>
+                          <td>4</td>
+                          <td>02</td>
+                          <td>R$ 10,00</td>
+                          <td>R$ 20,00</td>
+                        </tr>
+                        <tr>
+                          <td> JAQUETA</td>
+                          <td>6</td>
+                          <td>01</td>
+                          <td>R$ 30,00</td>
+                          <td>R$ 30,00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                    <h2>Prazo total : 6 horas</h2>
+                    <h2>Valor total : R$ 75,00</h2>
+                    <div>
+                        <button style ="margin-right: 15px;" 
+                                      onclick="alert('O pedido nº 33 foi confirmado!')" type="button" id="confirmar-pedido">Confirmar</button>
+                      <button  type="button" 
+                                      onclick="alert('Seu pedido foi cancelado')"id="rejeitar-pedido">Rejeitar</button>
+                    </div> 
+                </div> 
+              </div>    
+        
+      </div>
     </div>
-      <div class="row justify-content-center">
-        <div class="col-12 col-sm-8 mb-5">
-          <form name = "pedido" id="pedidoform">
-            <div class="control-group">
-              <label for="tipo-roupa">Selecione o Tipo de Roupa:</label>
-              <select class="form-control wide" id="tipo-roupa" name="tipo-roupa">
-                <option selected disabled value =" ">Selecione roupa</option>
-                <option value="calcajeans">Calça Jeans</option>
-                <option value="camiseta">Camiseta</option>
-                <option value="blusamoletom">Blusa Moletom</option>
-                <option value="roupaintima">Roupa Intima</option>
-                <option value="jaqueta">Jaqueta</option>
-              </select>
-              <p class="help-block text-danger"></p>
-              <label for="quantidade">Quantidade:</label>
-              <input class="form-control wide" type="number" id="quantidade" name="quantidade" min="1" value="1">
-              <p class="help-block text-danger"></p>
-            </div>
-            <div>
-              <button class="btn btn-primary py-3 px-5" type="submit" id="adicionar-pedido">Adicionar</button>
-            </div>
-          </form>
-         
-          <div class = "d-flex flex-column text-center mb-5 pt-5">
-            <table id="pedido-table">
-              <thead>
-                <tr>
-                  <th>Roupa</th>
-                  <th>Prazo (hrs)</th>
-                  <th>Quantidade</th>
-                  <th>Valor Unitário</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> CAMISETA</td>
-                  <td>2</td>
-                  <td>05</td>
-                  <td>R$ 5,00</td>
-                  <td>R$ 25,00</td>
-                </tr>
-                <tr>
-                  <td> CALÇA</td>
-                  <td>4</td>
-                  <td>02</td>
-                  <td>R$ 10,00</td>
-                  <td>R$ 20,00</td>
-                </tr>
-                <tr>
-                  <td> JAQUETA</td>
-                  <td>6</td>
-                  <td>01</td>
-                  <td>R$ 30,00</td>
-                  <td>R$ 30,00</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="help-block text-danger"></p>
-          </div>
-            <h2>Prazo total : 6 horas</h2>
-            <h2>Valor total : R$ 75,00</h2>
-            <div>
-                <button style ="margin-right: 15px;" class="btn btn-primary py-3 px-5" 
-                              onclick="alert('O pedido nº 33 foi confirmado!')" type="button" id="confirmar-pedido">Confirmar</button>
-              <button class="btn btn-primary py-3 px-5" type="button" 
-                              onclick="alert('Seu pedido foi cancelado')"id="rejeitar-pedido">Rejeitar</button>
-            </div> 
-        </div> 
-      </div>    
-</div>     
+  </div>
+</div>
