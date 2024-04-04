@@ -6,6 +6,7 @@ import { OrderOnlineComponent } from './Cliente/order-online/order-online.compon
 import { PaginaInicialComponent } from './Geral/pagina_inicial/pagina_inicial.component';
 import { ListagemPedidosComponent } from './Cliente/listagem-pedidos/listagem-pedidos.component';
 import { AprovacaoOrcamentoComponent } from './Cliente/aprovacao-orcamento/aprovacao-orcamento.component';
+import { PaginaInicialFuncionarioComponent } from './Funcionario/pagina-inicial-funcionario/pagina-inicial-funcionario.component';
 
 export const routes: Routes = [
   {path: 'login', component:LoginComponent, pathMatch: 'full' },
@@ -14,7 +15,7 @@ export const routes: Routes = [
   {path: 'pagina_inicial', component: PaginaInicialComponent, pathMatch: 'full' },
   {path: 'listagem-pedidos', component: ListagemPedidosComponent, pathMatch: 'full' },
   {path: 'aprovacao-orcamento', component: AprovacaoOrcamentoComponent, pathMatch: 'full' },
-
+  {path: 'pagina-inicial-funcionario', component: PaginaInicialFuncionarioComponent, pathMatch: 'full'},
   {path:'**', redirectTo:'', pathMatch: 'full' }
 ];
 
