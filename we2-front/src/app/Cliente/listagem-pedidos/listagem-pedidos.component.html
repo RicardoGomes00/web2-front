@@ -67,92 +67,52 @@
           <button class="btn btn-primary btn-sm mb-1 ml-2" type="button" >Limpar filtro</button>
         </div>
 
-  <br>
+        <br>
 
-  <table class="table">
-      <tr>
-          <th>Nº</th>
-          <th>Peças</th>
-          <th id="data-retirada">Data retirada</th>
-          <th id="data-entrega">Data entrega</th>
-          <th>Status</th>
-          <th>Pagamento</th>
-      </tr>
-      <tr>
-          <td>020</td>
-          <td>1 Casaco, 2 calças</td>
-          <td>02/09/2023 16:07:34</td>
-          <td> </td>
-          <td>Aguardando Pagamento</td>
-          <td><a href="pagar-pedido" class="nav-item nav-link" class=OrderPayment>Pagar</a></td>
-      </tr>
-      <tr>
-          <td>016</td>
-          <td>4 Cuecas, 2 calças</td>
-          <td>29/08/2023 14:02:51</td>
-          <td></td>
-          <td>Aberto</td>
-          <td><a href="pagar-pedido" class="nav-item nav-link" class=OrderPayment>Pagar</a></td>
-      </tr>
-      <tr>
-          <td>015</td>
-          <td>2 Casacos</td>
-          <td>29/08/2023 11:44:38</td>
-          <td> </td>
-          <td>Cancelado</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>014</td>
-          <td>3 Camisetas, 2 calças</td>
-          <td>28/08/2023 14:16:08</td>
-          <td></td>
-          <td>Aberto</td>
-          <td><a href="pagar-pedido" class="nav-item nav-link" class=OrderPayment>Pagar</a></td>
-      </tr>
-      <tr>
-          <td>011</td>
-          <td>4 Calças, 3 meias, 1 casaco</td>
-          <td>25/08/2023 11:35:20</td>
-          <td> </td>
-          <td>Rejeitado</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>010</td>
-          <td>1 Camiseta, 3 meias</td>
-          <td>24/08/2023 10:02:58</td>
-          <td>28/08/2023 14:42:14</td>
-          <td>Finalizado</td>
-          <td class="OrderPaid">Pago</td>
-      </tr>
-      <tr>
-          <td>009</td>
-          <td>4 Cuecas, 2 calças</td>
-          <td>23/08/2023 15:13:07</td>
-          <td>27/08/2023 12:46:15</td>
-          <td>Finalizado</td>
-          <td class="OrderPaid">Pago</td>
-      </tr>
-      <tr>
-          <td>003</td>
-          <td>4 Camisetas</td>
-          <td>17/08/2023 09:35:52</td>
-          <td>21/08/2023 11:34:26</td>
-          <td>Finalizado</td>
-          <td class="OrderPaid">Pago</td>
-      </tr>
-      <tr>
-          <td>002</td>
-          <td>4 Camisetas</td>
-          <td>16/08/2023 08:21:18</td>
-          <td> </td>
-          <td>Cancelado</td>
-          <td></td>
-      </tr>
-
-  </table>
-          <br><br>
+        <table class="table">
+          <thead>
+            <tr>
+                <th>Nº</th>
+                <th>Peças</th>
+                <th id="data-retirada">Data retirada</th>
+                <th id="data-entrega">Data entrega</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pedido of pedidos" [ngSwitch]="pedido.status">
+                <td>{{pedido.numeroPedido}}</td>
+                <td>{{pedido.pecas}}</td>
+                <td>{{pedido.dataRetirada}}</td>
+                <td>{{pedido.dataEntrega}}</td>
+                <td *ngSwitchCase="'Aberto'"  class="aberto">{{pedido.status}}</td>
+                <td *ngSwitchCase="'Aberto'" >
+                  <a href="#" title="Remover" alt="Remover" class="btn btn-sm btn-danger ml-1"
+                          (click)="remover($event, pedido)">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                      </a>
+                </td>
+                <td *ngSwitchCase="'Rejeitado'" class="rejeitadoCancelado">{{pedido.status}}</td>
+                <td *ngSwitchCase="'Rejeitado'"></td>
+                <td *ngSwitchCase="'Cancelado'" class="rejeitadoCancelado">{{pedido.status}}</td>
+                <td *ngSwitchCase="'Cancelado'"></td>
+                <td *ngSwitchCase="'Recolhido'" class="recolhido">{{pedido.status}}</td>
+                <td *ngSwitchCase="'Recolhido'"></td>
+                <td *ngSwitchCase="'Aguardando Pagamento'" class="aguardandoPagamento">{{pedido.status}}</td>
+                <td *ngSwitchCase="'Aguardando Pagamento'">
+                  <a href="pagar-pedido" class="btn btn-primary btn-sm mb-1 ml-1" title="confirmar pagamento" (click)="confirmarPagamento(pedido)">
+                    <i class="fas fa-dollar-sign"></i>
+                  </a>
+                </td>
+                <td *ngSwitchCase="'Pago'" class="pago">{{pedido.status}}</td>
+                <td *ngSwitchCase="'Pago'"></td>
+                <td *ngSwitchCase="'Finalizado'" class="finalizado">{{pedido.status}}</td>
+                <td *ngSwitchCase="'Finalizado'"></td>
+              </tr>
+            </tbody> 
+          </table>
+        <br><br>
       </form>
     </div>
   </div>
