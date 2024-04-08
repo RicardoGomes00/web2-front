@@ -98,7 +98,11 @@
                 <td *ngSwitchCase="'Cancelado'" class="rejeitadoCancelado">{{pedido.status}}</td>
                 <td *ngSwitchCase="'Cancelado'"></td>
                 <td *ngSwitchCase="'Recolhido'" class="recolhido">{{pedido.status}}</td>
-                <td *ngSwitchCase="'Recolhido'"></td>
+                <td *ngSwitchCase="'Recolhido'">
+                  <a href="#" title="Marcar Como Lavado" class="btn btn-small btn-success ml-1">
+                    <i class="fa-solid fa-check"></i>
+                  </a>
+                </td>
                 <td *ngSwitchCase="'Aguardando Pagamento'" class="aguardandoPagamento">{{pedido.status}}</td>
                 <td *ngSwitchCase="'Aguardando Pagamento'">
                   <a href="pagar-pedido" class="btn btn-primary btn-sm mb-1 ml-1" title="confirmar pagamento" (click)="confirmarPagamento(pedido)">
