@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-pagamento-pedido',
   standalone: true,
   imports: [],
-  templateUrl: './pagamento-pedido.component.html',
-  styleUrl: './pagamento-pedido.component.css'
+  templateUrl: 'pagamento-pedido.component.html',
+  styleUrls: ['pagamento-pedido.component.css']
 })
 export class PagamentoPedidoComponent {
 
