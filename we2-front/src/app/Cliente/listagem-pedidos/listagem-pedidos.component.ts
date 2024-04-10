@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-// import { MarcarComoLavadoService } from '../../services/pedidos/MarcarComoLavadoService';
 
 @Component({
   selector: 'app-listagem-pedidos',
@@ -16,8 +15,7 @@ export class ListagemPedidosComponent {
   pedidos = Pedidos;
 
   constructor(
-    private router: Router,
-    // private marcarComoLavadoService: MarcarComoLavadoService
+    private router: Router
   ){}
 
   confirmarPagamento(pedido: any) {
@@ -40,22 +38,10 @@ export class ListagemPedidosComponent {
     }
   }
 
-  // public marcarComoLavado(id: string): void {
-  //   var response = this.marcarComoLavadoService.chamarApiExterna(id);
-  //     if (response)
-  //     {
-  //       console.log("deu certo");
-  //     }
-  //     else
-  //     {
-  //       console.log("deu errado");
-  //     }
-  // }
-
 }
 
 const Pedidos = [
-  {numeroPedido: '020', pecas:'1 Casaco, 2 calças', dataRetirada:'02/09/2023 16:07:34', dataEntrega:'', status:'Recolhido'},
+  {numeroPedido: '020', pecas:'1 Casaco, 2 calças', dataRetirada:'02/09/2023 16:07:34', dataEntrega:'', status:'Aberto'},
   {numeroPedido: '016', pecas:'4 Cuecas, 2 calças', dataRetirada:'29/08/2023 14:02:51', dataEntrega:'', status:'Aberto'},
   {numeroPedido: '015', pecas:'2 Casacos', dataRetirada:'29/08/2023 11:44:38', dataEntrega:'', status:'Cancelado'},
   {numeroPedido: '014', pecas:'3 Camisetas, 2 calças', dataRetirada:'28/08/2023 14:16:08', dataEntrega:'', status:'Aberto'},

@@ -7,6 +7,7 @@ import { PaginaInicialComponent } from './Geral/pagina_inicial/pagina_inicial.co
 import { ListagemPedidosComponent } from './Cliente/listagem-pedidos/listagem-pedidos.component';
 import { AprovacaoOrcamentoComponent } from './Cliente/aprovacao-orcamento/aprovacao-orcamento.component';
 import { PaginaInicialFuncionarioComponent } from './Funcionario/pagina-inicial-funcionario/pagina-inicial-funcionario.component';
+import { VisualizacaoDePedidosComponent } from './Funcionario/visualizacao-de-pedidos/visualizacao-de-pedidos.component';
 
 export const routes: Routes = [
   {path: 'login', component:LoginComponent, pathMatch: 'full' },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   {path: 'listagem-pedidos', component: ListagemPedidosComponent, pathMatch: 'full' },
   {path: 'aprovacao-orcamento', component: AprovacaoOrcamentoComponent, pathMatch: 'full' },
   {path: 'pagina-inicial-funcionario', component: PaginaInicialFuncionarioComponent, pathMatch: 'full'},
+  {path: 'visualizacao-de-pedidos', component: VisualizacaoDePedidosComponent, pathMatch: 'full'},
   {path:'**', redirectTo:'', pathMatch: 'full' }
 ];
 
