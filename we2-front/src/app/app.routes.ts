@@ -8,6 +8,9 @@ import { ListagemPedidosComponent } from './Cliente/listagem-pedidos/listagem-pe
 import { AprovacaoOrcamentoComponent } from './Cliente/aprovacao-orcamento/aprovacao-orcamento.component';
 import { PaginaInicialFuncionarioComponent } from './Funcionario/pagina-inicial-funcionario/pagina-inicial-funcionario.component';
 import { PagamentoPedidoComponent } from './Cliente/pagamento-pedido/pagamento-pedido.component';
+import { ManutencaoFuncionarioComponent } from './Funcionario/manutencao-funcionario/manutencao-funcionario.component';
+import { RelatorioReceitasComponent } from './Funcionario/relatorio-receitas/relatorio-receitas.component';
+import { RelatorioClientesComponent } from './Funcionario/relatorio-clientes/relatorio-clientes.component';
 import { ListarRoupasComponent } from './Funcionario/CrudRoupas/listar-roupas/listar-roupas.component';
 import { EditarRoupaComponent } from './Funcionario/CrudRoupas/editar-roupa/editar-roupa.component';
 import { InserirRoupaComponent } from './Funcionario/CrudRoupas/inserir-roupa/inserir-roupa.component';
@@ -24,6 +27,9 @@ export const routes: Routes = [
   {path: 'roupas', component: ListarRoupasComponent, pathMatch: 'full'},
   {path: 'roupas/novo', component: ListarRoupasComponent, pathMatch: 'full'},
   {path: 'roupas/editar/:id', component: ListarRoupasComponent, pathMatch: 'full'},
+  {path: 'manutencao-funcionario', component: ManutencaoFuncionarioComponent, pathMatch: 'full'},
+  {path: 'relatorio-receitas', component: RelatorioReceitasComponent, pathMatch: 'full'},
+  {path: 'relatorio-clientes', component: RelatorioClientesComponent, pathMatch: 'full'},
   {path:'**', redirectTo:'', pathMatch: 'full' }
 ];
 
