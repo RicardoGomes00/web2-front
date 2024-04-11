@@ -20,21 +20,26 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th>Número do Pedido</th>
-                      <th>Data/Hora</th>
                       <th>Cliente</th>
                       <th>Status</th>
-                      <th>Registrar Recolhimento</th>
+                      <th>Valor</th>
+                      <th>Recolhimento</th>
+                      <th>Prazo</th>
+                      <th>Ações</th>
                     </tr>
                   </thead>
                   <tbody>
-                      <td>001</td>
-                      <td>09:37:01h 04/04/2024</td>
-                      <td>Maria José</td>
-                      <td>Recolhido</td>
-                      <td>
-                        <button class="btn btn-primary" (click)="marcarComoLavado('Aqui vai o Id')">Lavado</button>
+                    <tr *ngFor="let pedido of pedidos">
+                      <!-- <td>{{pedido.numeroPedido}}</td>
+                      <td>{{pedido.dataRetirada}}</td>
+                      <td>{{pedido.cliente}}</td>
+                      <td>{{pedido.status}}</td> -->
+                      <td [ngSwitch]="pedido.getStatus()">
+                        <button *ngSwitchCase="statusPedido.aberto" class="btn btn-primary" (click)="confirmarRecolhimento(pedido)">Recolhido</button>
+                        <button *ngSwitchCase="statusPedido.recolhido" class="btn btn-primary" (click)="confirmarLavagem(pedido)">Lavado</button>
+                        <button *ngSwitchCase="statusPedido.pago" class="btn btn-primary" (click)="finalizarPedido(pedido)">Finalizar</button>
                       </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
