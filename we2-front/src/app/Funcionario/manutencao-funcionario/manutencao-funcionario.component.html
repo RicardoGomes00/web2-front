@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h2 class="card-title">Manutenção de Funcionários</h2>
+      <form #funcionarioForm="ngForm" (ngSubmit)="adicionarFuncionario()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" [(ngModel)]="funcionario.nome" name="nome" placeholder="Nome do Funcionário" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="funcionario.email" name="email" placeholder="Email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" class="form-control" id="dataNascimento" [(ngModel)]="funcionario.dataNascimento" name="dataNascimento" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="senha">Senha:</label>
+            <input type="password" class="form-control" id="senha" [(ngModel)]="funcionario.senha" name="senha" placeholder="Senha" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Adicionar Funcionário</button>
+      </form>
+    </div>
+  </div>
+  <hr class="my-4">
+  <h3 class="mb-3">Lista de Funcionários</h3>
+  <div class="table-responsive">
+    <table class="table table-striped shadow rounded">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Data de Nascimento</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let funcionario of funcionarios; let i = index">
+          <td>{{ funcionario.nome }}</td>
+          <td>{{ funcionario.email }}</td>
+          <td>{{ funcionario.dataNascimento | date: 'dd/MM/yyyy' }}</td>
+          <td>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
