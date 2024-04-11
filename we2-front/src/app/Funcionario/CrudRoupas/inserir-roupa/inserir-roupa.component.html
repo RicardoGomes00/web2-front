@@ -9,22 +9,28 @@
                     <label for="tipo">Tipo da peça:</label>
                     <input type="text" class="form-control" id="tipo" name="tipo" [(ngModel)]="roupa.tipo" #tipo = "ngModel" minlength="2" required>
                     <div *ngIf="tipo.errors && (tipo.dirty || tipo.touched)" class="alert alert-danger">
+                        <!--
                         <div [hidden]="!tipo.errors?.['required']"> Digite tipo da roupa. </div>
                         <div [hidden]="!tipo.errors?.['minlength']"> O tipo deve conter ao menos 2 caracteres. </div>
+                        -->
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="prazo">Prazo (dias):</label>
                     <input type="text" class="form-control" id="prazo" name="prazo" [(ngModel)]="roupa.prazo" #prazo="ngModel" required>
                     <div *ngIf="prazo.errors && (prazo.dirty || prazo.touched)" class="alert alert-danger">
+                        <!--
                         <div [hidden]="!prazo.errors?.['required']"> Digite o prazo de lavagem. </div>
+                        -->
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="vUnitario">Valor da lavagem:</label>
                     <input type="text" class="form-control" id="vUnitario" name="vUnitario" [(ngModel)]="roupa.vUnitario" #vUnitario="ngModel" required>
                     <div *ngIf="vUnitario.errors && (vUnitario.dirty || vUnitario.touched)" class="alert alert-danger">
+                        <!--
                         <div [hidden]="!vUnitario.errors?.['required']"> Digite o valor p/ lavagem. </div>
+                        -->
                     </div>
                 </div>
                 <div class="form-group">
