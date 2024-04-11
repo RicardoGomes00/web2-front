@@ -1,0 +1,42 @@
+<div class="container-fluid pt-5">
+    <div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">Novo Registro</h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="well">
+            <form #formRoupa ="ngForm">
+                <div class="form-group">
+                    <label for="tipo">Tipo da peça:</label>
+                    <input type="text" class="form-control" id="tipo" name="tipo" [(ngModel)]="roupa.tipo" #tipo = "ngModel" minlength="2" required>
+                    <div *ngIf="tipo.errors && (tipo.dirty || tipo.touched)" class="alert alert-danger">
+                        <div [hidden]="!tipo.errors?.['required']"> Digite tipo da roupa. </div>
+                        <div [hidden]="!tipo.errors?.['minlength']"> O tipo deve conter ao menos 2 caracteres. </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="prazo">Prazo (dias):</label>
+                    <input type="text" class="form-control" id="prazo" name="prazo" [(ngModel)]="roupa.prazo" #prazo="ngModel" required>
+                    <div *ngIf="prazo.errors && (prazo.dirty || prazo.touched)" class="alert alert-danger">
+                        <div [hidden]="!prazo.errors?.['required']"> Digite o prazo de lavagem. </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="vUnitario">Valor da lavagem:</label>
+                    <input type="text" class="form-control" id="vUnitario" name="vUnitario" [(ngModel)]="roupa.vUnitario" #vUnitario="ngModel" required>
+                    <div *ngIf="vUnitario.errors && (vUnitario.dirty || vUnitario.touched)" class="alert alert-danger">
+                        <div [hidden]="!vUnitario.errors?.['required']"> Digite o valor p/ lavagem. </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" (click)="inserirRoupa()" [disabled]="!formRoupa.form.valid">
+                        <i class="fa fa-save" aria-hidden="true"></i> Salvar
+                    </button>
+                    <a class="btn btn-secondary ml-5" routerLink="['/cadastro-roupas']">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

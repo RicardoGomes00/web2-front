@@ -1,0 +1,39 @@
+<div class="container-fluid pt-5">
+    <div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">Peças de Roupa</h1>
+    </div>
+    
+        <div class="row justify-content-center">
+            <table class="table">
+            <tbody>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Prazo</th>
+                    <th>Valor Unitário</th>
+                    <th class="text-center">
+                        <a routerLink="['/cadastro-roupas/novo']" 
+                            href="#" title="Novo" alt="Novo" class="btn btn-xs btn-success">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Novo
+                         </a>
+                    </th>
+                </tr>
+                <tr *ngFor="let roupa of roupas">
+                    <td>{{roupa.tipo}} </td>
+                    <td>{{roupa.prazo}} </td>
+                    <td>{{roupa.vUnitario}} </td>
+                    <td class="text-center" style="width: 300px">
+                        <a routerLink="['/cadastro-roupas/editar', roupa.id]" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                            <i class="fa fa-edit" aria-hidden="true"></i>Editar
+                        </a>
+                        <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger ml-2"
+                            (click)="remover($event, roupa)">
+                            <i class="fa fa-trash" aria-hidden="true"></i>Excluir
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+            <p *ngIf="roupas.length == 0">Nenhuma pessoa cadastrada.</p>
+        </div>
+</div>
+
