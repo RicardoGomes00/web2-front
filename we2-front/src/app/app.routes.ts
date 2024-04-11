@@ -8,6 +8,7 @@ import { ListagemPedidosComponent } from './Cliente/listagem-pedidos/listagem-pe
 import { AprovacaoOrcamentoComponent } from './Cliente/aprovacao-orcamento/aprovacao-orcamento.component';
 import { PaginaInicialFuncionarioComponent } from './Funcionario/pagina-inicial-funcionario/pagina-inicial-funcionario.component';
 import { PagamentoPedidoComponent } from './Cliente/pagamento-pedido/pagamento-pedido.component';
+import { ManutencaoFuncionarioComponent } from './Funcionario/manutencao-funcionario/manutencao-funcionario.component';
 import { RelatorioReceitasComponent } from './Funcionario/relatorio-receitas/relatorio-receitas.component';
 import { RelatorioClientesComponent } from './Funcionario/relatorio-clientes/relatorio-clientes.component';
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {path: 'aprovacao-orcamento', component: AprovacaoOrcamentoComponent, pathMatch: 'full' },
   {path: 'pagina-inicial-funcionario', component: PaginaInicialFuncionarioComponent, pathMatch: 'full'},
   {path: 'pagamento', component: PagamentoPedidoComponent, pathMatch: 'full'},
+  {path: 'manutencao-funcionario', component: ManutencaoFuncionarioComponent, pathMatch: 'full'},
   {path: 'relatorio-receitas', component: RelatorioReceitasComponent, pathMatch: 'full'},
   {path: 'relatorio-clientes', component: RelatorioClientesComponent, pathMatch: 'full'},
   {path:'**', redirectTo:'', pathMatch: 'full' }
