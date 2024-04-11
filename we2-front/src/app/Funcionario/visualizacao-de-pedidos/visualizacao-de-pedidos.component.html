@@ -20,7 +20,6 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th>Cliente</th>
                       <th>Status</th>
                       <th>Valor</th>
                       <th>Recolhimento</th>
@@ -29,11 +28,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let pedido of pedidos">
-                      <!-- <td>{{pedido.numeroPedido}}</td>
-                      <td>{{pedido.dataRetirada}}</td>
-                      <td>{{pedido.cliente}}</td>
-                      <td>{{pedido.status}}</td> -->
+                    <tr *ngFor="let pedido of pedidos" class="table-{{getStatusClass(pedido.getStatus())}}">
+                      <td>{{pedido.getStatus()}}</td>
+                      <td>{{pedido.getValor()}}</td>
+                      <td>{{pedido.getDataRecolhimento()}}</td>
+                      <td>{{pedido.getPrazo()}}</td>
                       <td [ngSwitch]="pedido.getStatus()">
                         <button *ngSwitchCase="statusPedido.aberto" class="btn btn-primary" (click)="confirmarRecolhimento(pedido)">Recolhido</button>
                         <button *ngSwitchCase="statusPedido.recolhido" class="btn btn-primary" (click)="confirmarLavagem(pedido)">Lavado</button>

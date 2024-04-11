@@ -6,6 +6,6 @@ export enum StatusPedido
     recolhido           = "recolhido",
     aguardandoPagamento = "aguardando_pagamento",
     pago                = "pago",
-    fechado             = 'fechado'
+    finalizado          = 'finalizado'
 
 }

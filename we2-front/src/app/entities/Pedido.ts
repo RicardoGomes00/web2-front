@@ -28,6 +28,21 @@ export default class Pedido
         return this.status;
     }
 
+    getValor() : number
+    {
+        return this.valor;
+    }
+
+    getPrazo() : Date
+    {
+        return this.prazo;
+    }
+
+    getDataRecolhimento() : Date | null
+    {
+        return this.dataRecolhimento;
+    }
+
     atualizarStatus(status: StatusPedido)
     {
         this.status = status
@@ -39,7 +54,15 @@ export default class Pedido
 
     static getPedidos(): Array<Pedido>
     {
-        let pedidos: Array<Pedido> = [];
+        let pedidos: Array<Pedido> =
+        [
+            new Pedido(15, new Date()),
+            new Pedido(20, new Date()),
+            new Pedido(21, new Date()),
+            new Pedido(30, new Date()),
+        ];
+
+        pedidos[3].atualizarStatus(StatusPedido.pago);
 
         return pedidos;
     }
