@@ -24,7 +24,7 @@ export class NavBarComponent {
     this.router.navigate(['/login']);
   }
 
-  public mostrarCliente: boolean = false;
+  public mostrarCliente: boolean = true;
   public mostrarFuncionario: boolean = true;
   public ncadastrado: boolean = true;
 }
