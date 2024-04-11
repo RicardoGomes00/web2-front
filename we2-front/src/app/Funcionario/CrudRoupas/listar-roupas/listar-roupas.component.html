@@ -11,7 +11,7 @@
                     <th>Prazo</th>
                     <th>Valor Unitário</th>
                     <th class="text-center">
-                        <a routerLink="['/cadastro-roupas/novo']" 
+                        <a [routerLink]="['/roupas/novo']" 
                             href="#" title="Novo" alt="Novo" class="btn btn-xs btn-success">
                             <i class="fa fa-plus" aria-hidden="true"></i> Novo
                          </a>
@@ -22,7 +22,8 @@
                     <td>{{roupa.prazo}} </td>
                     <td>{{roupa.vUnitario}} </td>
                     <td class="text-center" style="width: 300px">
-                        <a routerLink="['/cadastro-roupas/editar', roupa.id]" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                        <a [routerLink]="['/roupas/editar', roupa.id]" 
+                            href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
                             <i class="fa fa-edit" aria-hidden="true"></i>Editar
                         </a>
                         <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger ml-2"

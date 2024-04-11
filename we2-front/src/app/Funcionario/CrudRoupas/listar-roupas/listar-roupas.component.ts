@@ -3,13 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { RoupasService } from '../../services/roupas.service';
 import { Roupas } from '../../../models/roupas.model';
 import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-listar-roupas',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    CommonModule,
+    RouterModule,
   ],
   templateUrl: './listar-roupas.component.html',
   styleUrls: ['./listar-roupas.component.css']

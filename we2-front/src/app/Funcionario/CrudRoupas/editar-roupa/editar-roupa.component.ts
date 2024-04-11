@@ -4,13 +4,17 @@ import { Roupas } from '../../../models/roupas.model';
 import { RoupasService } from '../../services/roupas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-editar-roupa',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    CommonModule,
+    RouterModule,
   ],
   templateUrl: './editar-roupa.component.html',
   styleUrls: ['./editar-roupa.component.css']
@@ -37,7 +41,7 @@ export class EditarRoupaComponent implements OnInit {
   atualizar(): void{
     if(this.formRoupa.form.valid){
       this.roupasService.atualizarRoupa(this.roupa);
-      this.router.navigate(["/cadastro-roupas"]);
+      this.router.navigate(["/roupas"]);
     }
   }
 
