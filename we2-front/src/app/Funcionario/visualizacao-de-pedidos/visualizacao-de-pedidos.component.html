@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Todos os Pedidos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card shadow round">
+      <div class="card-header bg-light">
+        <h1 class="mb-0 text-center">Pedidos</h1>
+      </div>
+      <div class="card-body">
+        <div class="col-12">
+          <div class="card shadow round">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Status</th>
+                      <th>Valor</th>
+                      <th>Recolhimento</th>
+                      <th>Prazo</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let pedido of pedidos" class="table-{{getStatusClass(pedido.getStatus())}}">
+                      <td>{{pedido.getStatus()}}</td>
+                      <td>{{pedido.getValor()}}</td>
+                      <td>{{pedido.getDataRecolhimento()}}</td>
+                      <td>{{pedido.getPrazo()}}</td>
+                      <td [ngSwitch]="pedido.getStatus()">
+                        <button *ngSwitchCase="statusPedido.aberto" class="btn btn-primary" (click)="confirmarRecolhimento(pedido)">Recolhido</button>
+                        <button *ngSwitchCase="statusPedido.recolhido" class="btn btn-primary" (click)="confirmarLavagem(pedido)">Lavado</button>
+                        <button *ngSwitchCase="statusPedido.pago" class="btn btn-primary" (click)="finalizarPedido(pedido)">Finalizar</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  </script>
+</body>
+</html>
