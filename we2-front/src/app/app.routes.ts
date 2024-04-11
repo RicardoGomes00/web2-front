@@ -11,6 +11,9 @@ import { PagamentoPedidoComponent } from './Cliente/pagamento-pedido/pagamento-p
 import { ManutencaoFuncionarioComponent } from './Funcionario/manutencao-funcionario/manutencao-funcionario.component';
 import { RelatorioReceitasComponent } from './Funcionario/relatorio-receitas/relatorio-receitas.component';
 import { RelatorioClientesComponent } from './Funcionario/relatorio-clientes/relatorio-clientes.component';
+import { ListarRoupasComponent } from './Funcionario/CrudRoupas/listar-roupas/listar-roupas.component';
+import { EditarRoupaComponent } from './Funcionario/CrudRoupas/editar-roupa/editar-roupa.component';
+import { InserirRoupaComponent } from './Funcionario/CrudRoupas/inserir-roupa/inserir-roupa.component';
 
 export const routes: Routes = [
   {path: 'login', component:LoginComponent, pathMatch: 'full' },
@@ -21,6 +24,9 @@ export const routes: Routes = [
   {path: 'aprovacao-orcamento', component: AprovacaoOrcamentoComponent, pathMatch: 'full' },
   {path: 'pagina-inicial-funcionario', component: PaginaInicialFuncionarioComponent, pathMatch: 'full'},
   {path: 'pagamento', component: PagamentoPedidoComponent, pathMatch: 'full'},
+  {path: 'roupas', component: ListarRoupasComponent, pathMatch: 'full'},
+  {path: 'roupas/novo', component: InserirRoupaComponent, pathMatch: 'full'},
+  {path: 'roupas/editar/:id', component: EditarRoupaComponent, pathMatch: 'full'},
   {path: 'manutencao-funcionario', component: ManutencaoFuncionarioComponent, pathMatch: 'full'},
   {path: 'relatorio-receitas', component: RelatorioReceitasComponent, pathMatch: 'full'},
   {path: 'relatorio-clientes', component: RelatorioClientesComponent, pathMatch: 'full'},
