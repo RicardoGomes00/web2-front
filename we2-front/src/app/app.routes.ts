@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
 import { LoginComponent } from './Cliente/login/login.component';
 import { AutocadastroComponent } from './Cliente/autocadastro/autocadastro.component';

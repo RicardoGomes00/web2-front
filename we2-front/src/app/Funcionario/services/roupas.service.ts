@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Roupas } from '../../models/roupas.model';
+import { Roupas } from '../../shared/models/roupas.model';
 
 const RP_CHAVE: string = "roupas";
 
