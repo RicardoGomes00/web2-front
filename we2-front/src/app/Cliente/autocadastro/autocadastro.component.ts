@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxMaskDirective } from 'ngx-mask';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ViaCepService } from '../../shared/services/viacep/viacep.service';
+import { NgForm, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Endereco } from '../../shared/models/endereco.model';
 import { NgModule } from '@angular/core';
-
 
 @Component({
   selector: 'app-autocadastro',
@@ -11,20 +13,29 @@ import { NgModule } from '@angular/core';
   styleUrl: './autocadastro.component.css',
   imports: [
     NgxMaskDirective,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
-export class AutocadastroComponent {
-
+export class AutocadastroComponent implements OnInit {
+  public endereco: Endereco;
+  @ViewChild('formCadastro') formCadastro!: NgForm;  
   cadastroForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,    
+    private viacepService: ViaCepService, 
+  ) {
+    this.endereco = new Endereco(); 
     this.cadastroForm = this.fb.group({
-      cpf: ['', [Validators.required]],
       nome: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      endereco: ['', [Validators.required]],
       telefone: ['', [Validators.required, Validators.pattern(/\(\d{2}\) \d{4,5}-\d{4}/)]]
     });
+  }
+
+  ngOnInit(): void {
+    this.endereco = new Endereco();
   }
 
   get nome() {
@@ -43,5 +54,17 @@ export class AutocadastroComponent {
     if (this.cadastroForm.valid) {
       console.log(this.cadastroForm.value);
     }
+  }
+
+  buscaEndereco() {
+    this.viacepService.getAddress(this.formCadastro.form.get('cep')?.value)
+      .subscribe((address) => {
+        this.formCadastro.form.patchValue({
+          rua: address.logradouro,
+          bairro: address.bairro,
+          estado: address.uf,
+          cidade: address.localidade
+        });
+      });
   }
 }
