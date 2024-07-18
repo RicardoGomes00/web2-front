@@ -13,18 +13,10 @@
       <div class="navbar-nav mr-auto py-0" *ngIf="mostrarFuncionario">
         <a href="pagina-inicial-funcionario" class="nav-item nav-link">Pag. Inicial Funcionario</a>
         <a href="visualizacao-de-pedidos" class="nav-item nav-link">Visualizacao Pedidos Funcionario</a>
-        <a href="manutencao-funcionario" class="nav-item nav-link">Manutenção</a><!--/provisório no nav-bar/-->
-        <div class="dropdown" ngbDropdown>
-          <a class="dropdown-item dropdown-toggle nav-item nav-link" ngbDropdownToggle id="relatoriosDropdown" role="button">
-            Relatórios
-          </a>
-          <div ngbDropdownMenu aria-labelledby="relatoriosDropdown" class="dropdown-menu">
-            <a ngbDropdownItem href="relatorios">Relatório de Clientes</a>
-            <a ngbDropdownItem href="relatorio-clientes-fieis">Relatório de Clientes Fiéis</a>
-            <a ngbDropdownItem href="relatorio-receitas">Relatório de Receitas</a>
-          </div>
-        </div>
-        <a href="roupas" class="nav-item nav-link">CRUD-Roupas</a><!--/provisório no nav-bar/-->
+        <a href="manutencao-funcionario" class="nav-item nav-link">Manutenção</a><
+        <a href="relatorio-receitas" class="nav-item nav-link">Receitas</a><
+        <a href="relatorio-clientes" class="nav-item nav-link">Clientes</a><
+        <a href="roupas" class="nav-item nav-link">CRUD-Roupas</a><
       </div>
 
       <div class="navbar-nav ml-auto py-0" *ngIf="ncadastrado">
