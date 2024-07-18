@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-online',
@@ -15,7 +15,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 
 export class OrderOnlineComponent {// não mudar os valore, senão dá pau
 
-  
+  constructor(private router: Router) { }
   showEstimate: boolean = false;
   estimateValue: number = 0;
   estimateTime: number  = 0;
@@ -51,5 +51,9 @@ export class OrderOnlineComponent {// não mudar os valore, senão dá pau
   generateOrderNumber(): number {
     // Função para gerar um número de pedido simulado
     return Math.floor(Math.random() * 1000) + 1;
+  }
+
+  redirectToPage() {
+    this.router.navigate(['/aprovacao-orcamento']);
   }
 }
