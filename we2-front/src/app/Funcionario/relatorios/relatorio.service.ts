@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import jspdf from 'jspdf';
-import autoTable from 'jspdf-autotable'
+import autoTable from 'jspdf-autotable';
 
 @Injectable({
   providedIn: 'root'
