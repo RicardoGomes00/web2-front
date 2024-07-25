@@ -17,7 +17,24 @@
           <div class="card shadow round">
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered">
+                <label for="filtro">Filtrar por:</label>
+                <select id="filtro" [(ngModel)]="filtro" (change)="aplicarFiltro()">
+                  <option value="todos">Todos os pedidos</option>
+                  <option value="hoje">Pedidos de hoje</option>
+                  <option value="periodo">Pedidos por período</option>
+                </select>
+
+                <div *ngIf="filtro === 'periodo'">
+                  <label for="dataInicio">Data Início:</label>
+                  <input type="date" id="dataInicio" [(ngModel)]="dataInicio">
+
+                  <label for="dataFim">Data Fim:</label>
+                  <input type="date" id="dataFim" [(ngModel)]="dataFim">
+
+                  <button (click)="aplicarFiltro()">Aplicar Filtro</button>
+                </div>
+
+                <table class="table table-bordered mt-3">
                   <thead>
                     <tr>
                       <th>Status</th>
@@ -28,7 +45,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let pedido of pedidos" class="table-{{getStatusClass(pedido.getStatus())}}">
+                    <tr *ngFor="let pedido of pedidos" [ngClass]="getStatusClass(pedido.getStatus())">
                       <td>{{pedido.getStatus()}}</td>
                       <td>{{pedido.getValor()}}</td>
                       <td>{{pedido.getDataRecolhimento()}}</td>
@@ -48,8 +65,5 @@
       </div>
     </div>
   </div>
-
-  <script>
-  </script>
 </body>
 </html>
