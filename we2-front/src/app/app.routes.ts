@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './Cliente/login/login.component';
-import { AutocadastroComponent } from './Cliente/autocadastro/autocadastro.component';
+import { LoginComponent } from './Geral/login/login.component';
+import { AutocadastroComponent } from './Geral/autocadastro/autocadastro.component';
 import { OrderOnlineComponent } from './Cliente/order-online/order-online.component';
 import { ListagemPedidosComponent } from './Cliente/listagem-pedidos/listagem-pedidos.component';
 import { AprovacaoOrcamentoComponent } from './Cliente/aprovacao-orcamento/aprovacao-orcamento.component';
