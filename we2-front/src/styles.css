@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+.funcionario-dashboard {
+  font-family: 'Pacifico', cursive;
+}
+
+.cliente-dashboard {
+  font-family: Arial, sans-serif;
+}

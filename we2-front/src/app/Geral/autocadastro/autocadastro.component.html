@@ -7,14 +7,15 @@
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+
     />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <div
-      class="container-fluid p-4 shadow-lg rounded w-full lg:w-6"
-      style="margin: auto"
-    >
+    <div class="overlay" (click)="onClose()"></div>
+    <div class="form-container" (click)="$event.stopPropagation()">
+    <div class="container-fluid p-4 shadow-lg rounded w-full lg:w-6" style="margin: auto">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 mb-5">
           <div class="card shadow round mt-5">
@@ -126,18 +127,18 @@
                   placeholder="Seu CEP"
                   mask="XXXXX-XXX"
                   [(ngModel)]="endereco.cep"
-                  #cep="ngModel" 
+                  #cep="ngModel"
                   required
                   />
-            <div 
-              *ngIf="cep.invalid && (cep.dirty || cep.touched)" 
+            <div
+              *ngIf="cep.invalid && (cep.dirty || cep.touched)"
               class="alert alert-danger">
               <div [hidden]="!cep.errors?.['required']">Por favor, preencha seu CEP</div>
               <div [hidden]="!cep.errors?.['mask']">Por favor, preencha seu CEP</div>
             </div>
           </div>
           <div class="col text-center align-self-center">
-            <button 
+            <button
               class="btn btn-primary py-2 px-5"
               type="button"
               (click)="buscaEndereco()"
@@ -193,7 +194,7 @@
                     <label for="estado">Estado:</label>
                     <input
                       type="text"
-                      placeholder="Estado"
+                      placeholder="UF"
                       class="form-control p-4"
                       id="estado"
                       name="estado"
@@ -247,6 +248,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>

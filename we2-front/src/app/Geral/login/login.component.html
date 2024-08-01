@@ -1,33 +1,55 @@
-<!-- <head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head> -->
-<div class="container d-flex justify-content-center">
-  <div class="col-4">
-    <div class="card shadow round mt-5">
-      <div class="card-header">
-        <h3 class="text-center">Lavanderia OnLine</h3>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+  <div class="logo-container">
+    <img src="assets/turqoiselaundry.png" alt="LavanderiaOnline" class="logo">
+  </div>
+  <div class="container">
+    <div class="left-section arial-font">
+      <h2><span class="highlight">POUPE TEMPO</span> E UTILIZE NOSSOS SERVIÇOS</h2>
+      <ul>
+        <li>Faça <strong>orçamentos</strong> em minutos</li>
+        <li><strong>Economize tempo</strong> com nossa lavanderia</li>
+        <li>Acompanhe <strong>pedidos</strong> a um clique</li>
+      </ul>
+      <div class="image-container">
+        <img src="assets/laundryfront.png" alt="ImagemLavanderiaOnline">
       </div>
-
-      <div class="card-body">
-        <form [formGroup]="formLogin">
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" formControlName="email">
-            <!--incluir text danger quando a parte de validação do typescript estiver pronta, só descomentar-->
-            <!-- <div class ="form-text text-danger" *ngIf="isFormControlInvalid('email')">Usuário inválido</div> -->
+    </div>
+    <div class="right-section pacifico-font">
+      <div class="login-box" [class.disabled]="showAutocadastro">
+        <h2>Acesse sua conta</h2>
+        <form [formGroup]="formLogin" (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" formControlName="email" required>
+            <div *ngIf="isFormControlInvalid('email')" class="error-message">
+              Email inválido.
+            </div>
           </div>
-          <div class="mb-3">
-            <label class="form-label">Senha</label>
-            <input type="password" class="form-control" formControlName="password">
-            <!-- <div class ="form-text text-danger" *ngIf="isFormControlInvalid('password')">Senha inválida</div> -->
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" formControlName="password" required>
+            <div *ngIf="isFormControlInvalid('password')" class="error-message">
+              Senha inválida.
+            </div>
           </div>
-            <!--ajustar espaçamento dos botões-->
-            <button type="button" class="btn btn-primary mr-20">Entrar</button>
-            <button type="button" class="btn btn-primary ml-1" (click)="onSignUpClick()">
-              Cadastrar
-          </button>
+          <button type="submit">Entrar</button>
         </form>
+        <a href="#" class="forgot-password">Esqueci minha senha</a> <!--Criar o "esqueci a senha"-->
+        <p>Não possui conta? <a href="#" (click)="onSignUpClick()">Cadastre-se.</a></p>
       </div>
     </div>
   </div>
-</div>
+  <div class="overlay" *ngIf="showAutocadastro">
+    <app-autocadastro (close)="closeAutocadastro()"></app-autocadastro>
+  </div>
+</body>
+</html>
