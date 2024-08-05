@@ -7,32 +7,39 @@
   <link rel="stylesheet" href="dashboard-funcionario.component.css">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div class="dashboard">
     <aside class="sidebar">
       <div class="sidebar-header">
-        <h2>Dashboard</h2>
+        <h2><img src="assets/indigolaundry.png" alt="Lavanderia Online Logo" class="logo"></h2>
       </div>
       <nav class="sidebar-nav">
         <ul>
-          <li><a routerLink="/pagina-inicial-funcionario">Início</a></li>
-          <li><a routerLink="/visualizacao-de-pedidos">Pedidos</a></li>
-          <li><a routerLink="/manutencao-funcionario">Manutenção</a></li>
-          <li><a routerLink="/relatorio-receitas">Relatórios de Receitas</a></li>
-          <li><a routerLink="/relatorio-clientes">Relatórios de Clientes</a></li>
-          <li><a routerLink="/relatorio-clientes-fieis">Relatórios de Clientes Fiéis</a></li>
-          <li><a routerLink="/roupas">Roupas</a></li>
+          <li><a routerLink="pagina-inicial-funcionario" routerLinkActive="active">Início</a></li>
+          <li><a routerLink="visualizacao-de-pedidos" routerLinkActive="active">Pedidos</a></li>
+          <li><a routerLink="manutencao-funcionario" routerLinkActive="active">Manutenção</a></li>
+          <li><a routerLink="relatorio-receitas" routerLinkActive="active">Relatórios de Receitas</a></li>
+          <li><a routerLink="relatorio-clientes" routerLinkActive="active">Relatórios de Clientes</a></li>
+          <li><a routerLink="relatorio-clientes-fieis" routerLinkActive="active">Relatórios de Clientes Fiéis</a></li>
+          <li><a routerLink="roupas" routerLinkActive="active">Roupas</a></li>
+          <li class="sidebar-image">
+            <img src="assets/indigomachine.png" alt="MaquinaLavarRoupaIndigo">
+          </li>
         </ul>
       </nav>
     </aside>
     <div class="main-content">
       <header class="topbar">
         <div class="topbar-left">
-          <span class="welcome-message">Bem-vindo, Funcionário!</span>
+          <span class="welcome-message">Bem-vindo!</span>
         </div>
         <div class="topbar-right">
-          <span class="notification-icon">🔔</span>
+          <span class="notification-icon"><i class="fas fa-bell"></i></span>
+          <span class="profile-icon"><i class="fas fa-user"></i> Perfil</span>
+          <span class="settings-icon"><i class="fas fa-cog"></i> Configurações</span>
+          <span class="logout-icon"><i class="fas fa-sign-out-alt"></i> Sair</span>
         </div>
       </header>
       <div class="content-area">
