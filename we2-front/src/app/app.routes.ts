@@ -24,26 +24,6 @@ export const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'autocadastro', component: AutocadastroComponent, pathMatch: 'full' },
 
-  // Rotas independentes para cliente (mantidas)
-  { path: 'order-online', component: OrderOnlineComponent, pathMatch: 'full' },
-  { path: 'listagem-pedidos', component: ListagemPedidosComponent, pathMatch: 'full' },
-  { path: 'aprovacao-orcamento', component: AprovacaoOrcamentoComponent, pathMatch: 'full' },
-
-  // Rotas para funcionário (mantidas)
-  { path: 'pagina-inicial-funcionario', component: PaginaInicialFuncionarioComponent, pathMatch: 'full'},
-  { path: 'visualizacao-de-pedidos', component: VisualizacaoDePedidosComponent, pathMatch: 'full'},
-  { path: 'pagamento', component: PagamentoPedidoComponent, pathMatch: 'full'},
-  { path: 'roupas', component: ListarRoupasComponent, pathMatch: 'full'},
-  { path: 'roupas/novo', component: InserirRoupaComponent, pathMatch: 'full'},
-  { path: 'roupas/editar/:id', component: EditarRoupaComponent, pathMatch: 'full'},
-  { path: 'manutencao-funcionario', component: ManutencaoFuncionarioComponent, pathMatch: 'full'},
-  { path: 'relatorio-receitas', component: RelatorioReceitasComponent, pathMatch: 'full'},
-  { path: 'relatorio-clientes', component: RelatorioClientesComponent, pathMatch: 'full'},
-  { path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent, pathMatch: 'full'},
-  { path: 'pagina-inicial-cliente', component: PaginaInicialClienteComponent, pathMatch: 'full'},
-  { path: 'dashboard-funcionario', component: DashboardFuncionarioComponent, pathMatch: 'full'},
-
-
  // Rotas para funcionário
  {
   path: 'dashboard-funcionario',
