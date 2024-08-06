@@ -17,26 +17,68 @@ import { InserirRoupaComponent } from './Funcionario/CrudRoupas/inserir-roupa/in
 import { PaginaInicialClienteComponent } from './Cliente/pagina-inicial-cliente/pagina-inicial-cliente.component';
 import { DashboardFuncionarioComponent } from './Funcionario/dashboard-funcionario/dashboard-funcionario.component';
 import { DashboardClienteComponent } from './Cliente/dashboard-cliente/dashboard-cliente.component';
+import { ConsultaPedidosComponent } from './Cliente/consulta-pedido/consulta-pedidos.component';
 
 export const routes: Routes = [
-  {path: '', component:LoginComponent, pathMatch: 'full' },
-  {path: 'autocadastro', component:AutocadastroComponent, pathMatch: 'full' },
-  {path: 'order-online', component: OrderOnlineComponent, pathMatch: 'full' },
-  {path: 'listagem-pedidos', component: ListagemPedidosComponent, pathMatch: 'full' },
-  {path: 'aprovacao-orcamento', component: AprovacaoOrcamentoComponent, pathMatch: 'full' },
-  {path: 'pagina-inicial-funcionario', component: PaginaInicialFuncionarioComponent, pathMatch: 'full'},
-  {path: 'visualizacao-de-pedidos', component: VisualizacaoDePedidosComponent, pathMatch: 'full'},
-  {path: 'pagamento', component: PagamentoPedidoComponent, pathMatch: 'full'},
-  {path: 'roupas', component: ListarRoupasComponent, pathMatch: 'full'},
-  {path: 'roupas/novo', component: InserirRoupaComponent, pathMatch: 'full'},
-  {path: 'roupas/editar/:id', component: EditarRoupaComponent, pathMatch: 'full'},
-  {path: 'manutencao-funcionario', component: ManutencaoFuncionarioComponent, pathMatch: 'full'},
-  {path: 'relatorio-receitas', component: RelatorioReceitasComponent, pathMatch: 'full'},
-  {path: 'relatorio-clientes', component: RelatorioClientesComponent, pathMatch: 'full'},
-  {path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent, pathMatch: 'full'},
-  {path: 'pagina-inicial-cliente',component: PaginaInicialClienteComponent, pathMatch: 'full'},
-  {path: 'dashboard-funcionario', component: DashboardFuncionarioComponent, pathMatch: 'full'},
-  {path: 'dashboard-cliente', component: DashboardClienteComponent, pathMatch: 'full'},
-  {path:'**', redirectTo:'', pathMatch: 'full' }
-];
+  // Rota para a página de login
+  { path: '', component: LoginComponent, pathMatch: 'full' },
+  { path: 'autocadastro', component: AutocadastroComponent, pathMatch: 'full' },
 
+  // Rotas independentes para cliente (mantidas)
+  { path: 'order-online', component: OrderOnlineComponent, pathMatch: 'full' },
+  { path: 'listagem-pedidos', component: ListagemPedidosComponent, pathMatch: 'full' },
+  { path: 'aprovacao-orcamento', component: AprovacaoOrcamentoComponent, pathMatch: 'full' },
+
+  // Rotas para funcionário (mantidas)
+  { path: 'pagina-inicial-funcionario', component: PaginaInicialFuncionarioComponent, pathMatch: 'full'},
+  { path: 'visualizacao-de-pedidos', component: VisualizacaoDePedidosComponent, pathMatch: 'full'},
+  { path: 'pagamento', component: PagamentoPedidoComponent, pathMatch: 'full'},
+  { path: 'roupas', component: ListarRoupasComponent, pathMatch: 'full'},
+  { path: 'roupas/novo', component: InserirRoupaComponent, pathMatch: 'full'},
+  { path: 'roupas/editar/:id', component: EditarRoupaComponent, pathMatch: 'full'},
+  { path: 'manutencao-funcionario', component: ManutencaoFuncionarioComponent, pathMatch: 'full'},
+  { path: 'relatorio-receitas', component: RelatorioReceitasComponent, pathMatch: 'full'},
+  { path: 'relatorio-clientes', component: RelatorioClientesComponent, pathMatch: 'full'},
+  { path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent, pathMatch: 'full'},
+  { path: 'pagina-inicial-cliente', component: PaginaInicialClienteComponent, pathMatch: 'full'},
+  { path: 'dashboard-funcionario', component: DashboardFuncionarioComponent, pathMatch: 'full'},
+
+
+ // Rotas para funcionário
+ {
+  path: 'dashboard-funcionario',
+  component: DashboardFuncionarioComponent,
+  children: [
+    { path: '', redirectTo: 'pagina-inicial-funcionario', pathMatch: 'full' },
+    { path: 'pagina-inicial-funcionario', component: PaginaInicialFuncionarioComponent },
+    { path: 'visualizacao-de-pedidos', component: VisualizacaoDePedidosComponent },
+    { path: 'manutencao-funcionario', component: ManutencaoFuncionarioComponent },
+    { path: 'relatorio-receitas', component: RelatorioReceitasComponent },
+    { path: 'relatorio-clientes', component: RelatorioClientesComponent },
+    { path: 'relatorio-clientes-fieis', component: RelatorioClientesFieisComponent },
+    { path: 'roupas', component: ListarRoupasComponent },
+    { path: 'roupas/novo', component: InserirRoupaComponent },
+    { path: 'roupas/editar/:id', component: EditarRoupaComponent }
+  ]
+},
+
+  // Rotas para o dashboard do cliente
+  {
+    path: 'dashboard-cliente',
+    component: DashboardClienteComponent,
+    children: [
+      // Redirecionamento para a página inicial do cliente quando o dashboard é acessado
+      { path: '', redirectTo: 'pagina-inicial-cliente', pathMatch: 'full' },
+      // Páginas filhas do dashboard do cliente
+      { path: 'pagina-inicial-cliente', component: PaginaInicialClienteComponent },
+      { path: 'order-online', component: OrderOnlineComponent },
+      { path: 'listagem-pedidos', component: ListagemPedidosComponent },
+      { path: 'consulta-pedido', component: ConsultaPedidosComponent },
+      { path: 'aprovacao-orcamento', component: AprovacaoOrcamentoComponent },
+      { path: 'pagamento-pedido', component: PagamentoPedidoComponent }
+    ]
+  },
+
+  // Redirecionamento para rotas não reconhecidas
+  { path: '**', redirectTo: '', pathMatch: 'full' }
+];

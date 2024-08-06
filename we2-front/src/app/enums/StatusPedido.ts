@@ -7,5 +7,4 @@ export enum StatusPedido
     aguardandoPagamento = "aguardando_pagamento",
     pago                = "pago",
     finalizado          = 'finalizado'
-
 }
