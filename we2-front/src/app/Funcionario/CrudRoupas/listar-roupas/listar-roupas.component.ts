@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RoupasService } from '../../services/roupas.service';
+import { RoupasService } from '../services/roupas.service';
 import { Roupas } from '../../../shared/model/roupas.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -22,18 +22,27 @@ export class ListarRoupasComponent implements OnInit {
   constructor(private roupasService: RoupasService){}
 
   ngOnInit(): void{
-    this.roupas = this.listarRoupas();
+    this.listarRoupas();
   }
 
-  listarRoupas(): Roupas[]{
-    return this.roupasService.listarRoupas();
+  listarRoupas(): void{
+    this.roupasService.listarRoupas().subscribe({
+      next: (data: Roupas[]) => {
+        if (data == null) {
+          this.roupas = [];
+        } else {
+          this.roupas = data;
+        }
+      }
+    });
   }
 
   remover($event: any, roupa: Roupas): void{
     $event.preventDefault();
     if(confirm(`Deseja excluir a peça de roupa ${roupa.nome}?`)){
-      this.roupasService.removerRoupa(roupa.id!);
-      this.roupas = this.listarRoupas();
+        this.roupasService.removerRoupa(roupa.id!).subscribe({
+        complete: () => { this.listarRoupas(); }
+        });
     }
   }
 
