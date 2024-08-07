@@ -3,7 +3,7 @@ import { NgxMaskDirective } from 'ngx-mask';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViaCepService } from '../../shared/services/viacep/viacep.service';
 import { NgForm, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Endereco } from '../../shared/models/endereco.model';
+import { Endereco } from '../../shared/model/endereco.model';
 import { NgModule } from '@angular/core';
 import { from } from 'rxjs';
 

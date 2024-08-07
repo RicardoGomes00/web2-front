@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RoupasService } from '../../services/roupas.service';
-import { Roupas } from '../../../shared/models/roupas.model';
+import { Roupas } from '../../../shared/model/roupas.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';

@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './Geral/login/login.component';
 import { AutocadastroComponent } from './Geral/autocadastro/autocadastro.component';
-import { OrderOnlineComponent } from './Cliente/order-online/order-online.component';
-import { ListagemPedidosComponent } from './Cliente/listagem-pedidos/listagem-pedidos.component';
-import { AprovacaoOrcamentoComponent } from './Cliente/aprovacao-orcamento/aprovacao-orcamento.component';
+import { OrderOnlineComponent } from './Cliente/pedido/order-online/order-online.component';
+import { ListagemPedidosComponent } from './Cliente/pedido/listagem-pedidos/listagem-pedidos.component';
+import { AprovacaoOrcamentoComponent } from './Cliente/pedido/aprovacao-orcamento/aprovacao-orcamento.component';
 import { PaginaInicialFuncionarioComponent } from './Funcionario/pagina-inicial-funcionario/pagina-inicial-funcionario.component';
 import { VisualizacaoDePedidosComponent } from './Funcionario/visualizacao-de-pedidos/visualizacao-de-pedidos.component';
-import { PagamentoPedidoComponent } from './Cliente/pagamento-pedido/pagamento-pedido.component';
+import { PagamentoPedidoComponent } from './Cliente/pedido/pagamento-pedido/pagamento-pedido.component';
 import { ManutencaoFuncionarioComponent } from './Funcionario/manutencao-funcionario/manutencao-funcionario.component';
 import { RelatorioReceitasComponent } from './Funcionario/relatorios/relatorios-receitas/relatorio-receitas.component';
 import { RelatorioClientesComponent } from './Funcionario/relatorios/relatorios-clientes/relatorio-clientes.component';
@@ -17,7 +17,7 @@ import { InserirRoupaComponent } from './Funcionario/CrudRoupas/inserir-roupa/in
 import { PaginaInicialClienteComponent } from './Cliente/pagina-inicial-cliente/pagina-inicial-cliente.component';
 import { DashboardFuncionarioComponent } from './Funcionario/dashboard-funcionario/dashboard-funcionario.component';
 import { DashboardClienteComponent } from './Cliente/dashboard-cliente/dashboard-cliente.component';
-import { ConsultaPedidosComponent } from './Cliente/consulta-pedido/consulta-pedidos.component';
+import { ConsultaPedidosComponent } from './Cliente/pedido/consulta-pedido/consulta-pedidos.component';
 
 export const routes: Routes = [
   // Rota para a página de login
