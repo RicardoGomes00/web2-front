@@ -9,6 +9,8 @@ import { ListarRoupasComponent } from './listar-roupas/listar-roupas.component';
 import { InserirRoupaComponent } from './inserir-roupa/inserir-roupa.component';
 import { EditarRoupaComponent } from './editar-roupa/editar-roupa.component';
 
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+
 
 @NgModule({
   declarations: [
@@ -20,9 +22,12 @@ import { EditarRoupaComponent } from './editar-roupa/editar-roupa.component';
     CommonModule,
     RouterModule,
     FormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   providers: [
     RoupasService,
+    provideNgxMask(),
   ]
 })
 export class CrudroupasModule { }

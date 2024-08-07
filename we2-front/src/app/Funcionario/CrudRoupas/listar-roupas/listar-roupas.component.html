@@ -31,9 +31,9 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let roupa of roupas">
-                                <td>{{roupa.tipo}}</td>
+                                <td>{{roupa.nome}}</td>
                                 <td>{{roupa.prazo}}</td>
-                                <td>{{roupa.vUnitario}}</td>
+                                <td>{{roupa.preco}}</td>
                                 <td class="text-center">
                                     <a [routerLink]="['/roupas/editar', roupa.id]" href="#" title="Editar" alt="Editar" class="btn btn-info btn-sm">
                                         <i class="fa fa-edit" aria-hidden="true"></i> Editar

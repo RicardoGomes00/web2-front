@@ -31,7 +31,7 @@ export class ListarRoupasComponent implements OnInit {
 
   remover($event: any, roupa: Roupas): void{
     $event.preventDefault();
-    if(confirm(`Deseja excluir a peça de roupa ${roupa.tipo}?`)){
+    if(confirm(`Deseja excluir a peça de roupa ${roupa.nome}?`)){
       this.roupasService.removerRoupa(roupa.id!);
       this.roupas = this.listarRoupas();
     }

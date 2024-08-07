@@ -1,8 +1,8 @@
 export class Roupas {
     constructor(
         public id? : number,
-        public tipo? : String,
+        public nome? : String,
         public prazo?: number,
-        public vUnitario?: number,
+        public preco?: number,
     ){}
 }

@@ -10,7 +10,7 @@ export enum PedidoStatus {
   FINALIZADO = 'finalizado'
 }
 
-type RoupaQuantidade = Pick<Roupas, 'tipo'> & {quantidade: number};
+type RoupaQuantidade = Pick<Roupas, 'nome'> & {quantidade: number};
 
 export class Pedido {
   constructor(
