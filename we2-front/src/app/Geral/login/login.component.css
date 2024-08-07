@@ -17,7 +17,9 @@ html, body {
 .logo-container {
   position: fixed;
   top: 0%;
-  right: 725px;
+  right: 48%;
+  transform: translateX(50%);
+  z-index:10;
 }
 
 .logo {
@@ -80,6 +82,12 @@ html, body {
 .image-container img {
   max-width: 100%;
   height: auto;
+}
+
+.anchored-image{
+  max-width:100%;
+  height: auto;
+  objetct-fit: cover;
 }
 
 .right-section {
