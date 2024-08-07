@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Roupas } from '../../../shared/model/roupas.model';
-import { RoupasService } from '../../services/roupas.service';
+import { RoupasService } from '../services/roupas.service';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
 export class InserirRoupaComponent implements OnInit {
   @ViewChild('formRoupa') formRoupa! : NgForm;
   roupa! : Roupas;
+  message!: string;
    constructor(private roupasService:RoupasService, private router: Router ){}
 
    ngOnInit(): void {
@@ -31,9 +32,14 @@ export class InserirRoupaComponent implements OnInit {
 
    inserirRoupa(): void{
     if(this.formRoupa.form.valid){
-      this.roupasService.inserirRoupa(this.roupa);
-      this.router.navigate(["/roupas"]);
+      this.roupasService.inserirRoupa(this.roupa)
+        .subscribe((roupa) => {
+          if (roupa != null) {
+            this.router.navigate( ["/dashboard-funcionario/roupas"] );
+          } else {
+            this.message = 'Erro ao cadastrar funcionário';
+          }
+        });
+      }
     }
-   }
-
 }

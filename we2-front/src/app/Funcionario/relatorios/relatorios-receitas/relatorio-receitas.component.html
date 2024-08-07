@@ -24,15 +24,13 @@
           <thead>
             <tr>
               <th style="width:10%">Data</th>
-              <th style="width:10%">Pedido</th>
               <th style="width:10%">Valor Recebido</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let receita of receitas">
-              <td>{{receita.data}}</td>  
-              <td>{{receita.pedido}}</td>
-              <td>{{receita.valorRecebido}}</td>
+              <td>{{ receita.data }}</td>
+              <td>{{ receita.valorRecebido}}</td>
             </tr>
           </tbody>
         </table>
