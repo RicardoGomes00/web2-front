@@ -1,40 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { RelatorioService } from '../relatorio.service';
+import { Usuario } from '../../../shared/model';
+import { ClienteService } from '../../../Cliente/services/cliente.service';
 
 @Component({
   selector: 'app-relatorios',
+  standalone: true,
+  imports: [],
   templateUrl: './relatorio-clientes.component.html'
 })
-export class RelatorioClientesComponent {
-  clientes = [
-    {
-      nome: 'Nicolas Portela',
-      email: 'nicolas@ufpr.br',
-      cpf: '12345678901',
-      telefone: '41984043005',
-      cep: '828400020',
-      rua: 'Av Canada',
-      numero: '450',
-      estado: 'Paraná',
-      cidade: 'Curitiba',
-      bairro: 'Centro'
-    },
-    {
-      nome: 'Ricardo Gomes',
-      email: 'ricardo@ufpr.br',
-      cpf: '01987654321',
-      telefone: '41937426528',
-      cep: '34872462',
-      rua: 'João Gualberto',
-      numero: '12',
-      estado: 'Paraná',
-      cidade: 'Curitiba',
-      bairro: 'Centro'
-    },
-    // Adicione outros clientes conforme necessário
-  ];
 
-  constructor(private readonly relatorioService: RelatorioService) {}
+export class RelatorioClientesComponent implements OnInit{
+  @ViewChild('content', { static: false }) el!: ElementRef;
+  clientes: Usuario[] = [];
+
+  constructor(
+    private readonly relatorioService: RelatorioService,
+    private clienteService : ClienteService
+    ) { }
+
+  ngOnInit(): void {
+    this.listarTodos();
+  }
+
+
+  listarTodos(): void {
+    this.clienteService.listarTodos().subscribe({
+      next: (data: Usuario[]) => {
+        if (data == null) {
+          this.clientes = [];
+        } else {
+          this.clientes = data;
+          console.log(this.clientes);
+        }
+      }
+    });
+  }
 
   gerarRelatorioClientes(){
     const headers = ['nome', 'email', 'cpf', 'telefone', 'cep', 'rua', 'numero', 'estado', 'bairro', 'cidade'];

@@ -1,54 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { RelatorioService } from '../relatorio.service';
+import { ClienteService } from '../../../Cliente/services/cliente.service';
+import { Usuario } from '../../../shared/model';
+
 
 @Component({
   selector: 'app-relatorios-fieis',
   templateUrl: './relatorio-clientes-fieis.component.html'
 })
 export class RelatorioClientesFieisComponent {
-  clientesFieis = [
-    {
-      posicao: '1º',
-      nome: 'Nicolas Portela',
-      email: 'nicolas@ufpr.br',
-      cpf: '12345678901',
-      telefone: '41984043005',
-      quantidadePedidos: 27,
-      receitaGerada: 'R$ 423,50'
-    },
-    {
-      posicao: '2º',
-      nome: 'Ricardo Gomes',
-      email: 'ricardo@ufpr.br',
-      cpf: '01987654321',
-      telefone: '41937426528',
-      quantidadePedidos: 23,
-      receitaGerada: 'R$ 391,00'
-    },
-    {
-      posicao: '3º',
-      nome: 'Lucas Silva',
-      email: 'lucas@ufpr.br',
-      cpf: '36487249843',
-      telefone: '41998743127',
-      quantidadePedidos: 17,
-      receitaGerada: 'R$ 316,20'
+  @ViewChild('content', { static: false }) el!: ElementRef;
+  clientesFieis: Usuario[] = [];
+
+  constructor(
+    private readonly relatorioService: RelatorioService,
+    private clienteService : ClienteService
+    ) { }
+
+    ngOnInit(): void {
+      this.listarClientesFieis();
     }
-  ];
+  
+    listarClientesFieis() {
+      this.clienteService.listarClientesFieis().subscribe(
+        clientes => {
+          // Pega apenas os três primeiros clientes
+          this.clientesFieis = clientes.slice(0, 3);
+        },
+        error => {
+          console.error('Erro ao obter clientes fiéis', error);
+        }
+      );
+      }
 
-  constructor(private readonly relatorioService: RelatorioService) {}
-
-  gerarRelatorioClientesFieis() {
-    const headers = ['Posição', 'Nome', 'Email', 'CPF', 'Telefone', 'Quantidade de Pedidos', 'Receita Gerada'];
-    const data = this.clientesFieis.map(cliente => [
-      cliente.posicao,
-      cliente.nome,
-      cliente.email,
-      cliente.cpf,
-      cliente.telefone,
-      cliente.quantidadePedidos.toString(),
-      cliente.receitaGerada
-    ]);
-    this.relatorioService.gerarPDF(headers, data);
-  }
+      gerarRelatorioClientesFieis() {
+        const headers = ['Nome', 'Quantidade de Pedidos', 'Receita gerada'];
+        const data: string [][] = this.clientesFieis.map(cliente => [
+          cliente.nome!, cliente.quantidadePedidos!, cliente.valorReceita!, 
+        ]);
+        this.relatorioService.gerarPDF(headers, data)
+      }
 }
