@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Pedido, PedidoStatus,  } from '../../../shared/model';
+import { PedidosService } from '../../../shared/services/pedidos/pedidos.service';
+import { PedidoStatusService } from '../../../shared/services/pedidos/pedido-status.service';
 
 @Component({
   selector: 'app-listagem-pedidos',
@@ -12,43 +15,49 @@ import { CommonModule } from '@angular/common';
   styleUrl: './listagem-pedidos.component.css'
 })
 export class ListagemPedidosComponent {
-  pedidos = Pedidos;
+  pedidos!: Pedido[];
+  status = PedidoStatus;
+  filtroStatus!: PedidoStatus;
+  statusRef! : PedidoStatus;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private pedidosService: PedidosService,
+    private pedidoStatusService: PedidoStatusService
   ){}
 
-  confirmarPagamento(pedido: any) {
-    const index = this.pedidos.findIndex(p => p.numeroPedido === pedido.numeroPedido);
-
-    if (index !== -1) {
-      this.pedidos[index].status = 'Pago';
-    }
+  ngOnInit(): void {
+    this.pedidosService.listar().subscribe(pedidos => this.pedidos = pedidos)
   }
 
-  remover($event: any,pedido: any): void{
-    const index = this.pedidos.findIndex(p => p.numeroPedido === pedido.numeroPedido);
+  aplicarFiltro(){
+    this.pedidosService.listar(this.filtroStatus).subscribe(pedidos => this.pedidos = pedidos);
+  }
 
-    $event.preventDefault();
-    if(confirm(`Deseja excluir a peça de roupa ?`)){
+  limparFiltro(){
+    this.pedidosService.listar().subscribe(pedidos => this.pedidos = pedidos);
+  }
 
-      if (index !== -1) {
-        this.pedidos[index].status = 'Cancelado';
-      }
+  confirmarPagamento(id: string) {
+    this.router.navigateByUrl(`/pagar-pedido/${id}`)
+  }
+
+  private atualizaTabela(id?: string){
+    if (this.statusRef === PedidoStatus.EM_ABERTO){
+      this.pedidos = this.pedidos.filter(pedido=> pedido.id !== id);
+    }else{
+      this.pedidosService.listar().subscribe(pedidos => this.pedidos = pedidos);
     }
+    
+  }
+
+  remover(id: string): void{
+    this.pedidosService.mudarStatus(id, PedidoStatus.CANCELADO)
+    .subscribe(() => this.atualizaTabela(id));
+  }
+
+  getCorPedido(pedido: Pedido){
+    return this.pedidoStatusService.getCssColor(pedido);
   }
 
 }
-
-const Pedidos = [
-  {numeroPedido: '020', pecas:'1 Casaco, 2 calças', dataRetirada:'02/09/2023 16:07:34', dataEntrega:'', status:'Aberto'},
-  {numeroPedido: '016', pecas:'4 Cuecas, 2 calças', dataRetirada:'29/08/2023 14:02:51', dataEntrega:'', status:'Aberto'},
-  {numeroPedido: '015', pecas:'2 Casacos', dataRetirada:'29/08/2023 11:44:38', dataEntrega:'', status:'Cancelado'},
-  {numeroPedido: '014', pecas:'3 Camisetas, 2 calças', dataRetirada:'28/08/2023 14:16:08', dataEntrega:'', status:'Aberto'},
-  {numeroPedido: '011', pecas:'4 Calças, 3 meias, 1 casaco', dataRetirada:'25/08/2023 11:35:20', dataEntrega:'', status:'Rejeitado'},
-  {numeroPedido: '010', pecas:'1 Camiseta, 3 meias', dataRetirada:'24/08/2023 10:02:58', dataEntrega:'28/08/2023 16:07:34', status:'Finalizado'},
-  {numeroPedido: '009', pecas:'4 Cuecas, 2 calças', dataRetirada:'23/08/2023 15:13:07', dataEntrega:'27/08/2023 16:07:34', status:'Finalizado'},
-  {numeroPedido: '003', pecas:'4 Camisetas', dataRetirada:'21/08/2023 11:34:26', dataEntrega:'21/08/2023 16:07:34', status:'Finalizado'},
-  {numeroPedido: '002', pecas:'4 Camisetas', dataRetirada:'16/08/2023 08:21:18', dataEntrega:'', status:'Cancelado'}
-]
-
