@@ -94,13 +94,13 @@
             </thead>
             <tbody>
               <tr *ngFor="let pedido of pedidos" [ngSwitch]="pedido.status">
-                <td>{{pedido.numeroPedido}}</td>
-                <td>{{pedido.pecas}}</td>
-                <td>{{pedido.dataRetirada}}</td>
-                <td>{{pedido.dataEntrega}}</td>
+                <td>{{pedido.id}}</td>
+                <td>{{pedido.roupas}}</td>
+                <td>{{pedido.dataPedido}}</td>
+                <td>{{pedido.prazo}}</td>
                 <td *ngSwitchCase="'Aberto'" class="aberto">{{pedido.status}}</td>
                 <td *ngSwitchCase="'Aberto'">
-                  <a href="#" title="Remover" alt="Remover" class="btn btn-sm btn-danger" (click)="remover($event, pedido)">
+                  <a href="#" title="Remover" alt="Remover" class="btn btn-sm btn-danger" (click)="remover(pedido.id)">
                     <i class="fa fa-trash" aria-hidden="true"></i> Cancelar
                   </a>
                 </td>
@@ -112,7 +112,7 @@
                 <td *ngSwitchCase="'Recolhido'"></td>
                 <td *ngSwitchCase="'Aguardando Pagamento'" class="aguardandoPagamento">{{pedido.status}}</td>
                 <td *ngSwitchCase="'Aguardando Pagamento'">
-                  <a href="pagar-pedido" class="btn btn-primary btn-sm" title="Confirmar pagamento" (click)="confirmarPagamento(pedido)">
+                  <a href="pagamento-pedido" class="btn btn-primary btn-sm" title="Confirmar pagamento" (click)="confirmarPagamento(pedido.id)">
                     <i class="fas fa-dollar-sign"></i>
                   </a>
                 </td>
