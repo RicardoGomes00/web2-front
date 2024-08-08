@@ -1,60 +1,49 @@
 import { Component, OnInit } from '@angular/core';
+import { Pedido } from '../../../shared/model';
+import { PedidosService } from '../../../shared/services/pedidos/pedidos.service';
+import { PedidoStatusService } from '../../../shared/services/pedidos/pedido-status.service';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-consulta-pedidos',
+  standalone: true,
+  imports: [
+    CurrencyPipe,
+    CommonModule,
+  ],
   templateUrl: './consulta-pedidos.component.html',
   styleUrls: ['./consulta-pedidos.component.css'],
 })
 export class ConsultaPedidosComponent implements OnInit {
-  ListaPedidos: any[] = [
-    { 
-      "Nº do Pedido": 1, 
-      "Peça": "Roupa",  
-      "Descrição": "Camisa",
-      "Data de Retirada": "2021-05-01",
-      "Data de Entrega": "2021-04-01",
-      "Status": "Em produção",
-      "Preço": 100.00,
-    },
-    { 
-      "Nº do Pedido": 1, 
-      "Peça": "Roupa",  
-      "Descrição": "Camisa",
-      "Data de Retirada": "2021-05-01",
-      "Data de Entrega": "2021-04-01",
-      "Status": "Em produção",
-      "Preço": 100.00,
-    },
-    { 
-      "Nº do Pedido": 1, 
-      "Peça": "Roupa", 
-      "Descrição": "Camisa",
-      "Data de Retirada": "2021-05-01",
-      "Data de Entrega": "2021-04-01",
-      "Status": "Em produção",
-      "Preço": 100.00,
-    },
-    { 
-      "Nº do Pedido": 1, 
-      "Peça": "Roupa",  
-      "Descrição": "Camisa",
-      "Data de Retirada": "2021-05-01",
-      "Data de Entrega": "2021-04-01",
-      "Status": "Em produção",
-      "Preço": 100.00,
-    },
-    { 
-      "Nº do Pedido": 1, 
-      "Peça": "Roupa",  
-      "Descrição": "Camisa",
-      "Data de Retirada": "2021-05-01",
-      "Data de Entrega": "2021-04-01",
-      "Status": "Em produção",
-      "Preço": 100.00,
-    },
-  ]
+  busca: any;
+  resultadoBusca: any = [];
+  pedidos!: Pedido[]
+  pedidosId: string[] = [];
+  precoTotal!: number;
 
-  constructor() {}
+  constructor(private pedidosService: PedidosService, private pedidoStatusService: PedidoStatusService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pedidosService.listar().subscribe(pedidos =>this.pedidos = pedidos);
+  }
+
+  getColor(pedido: Pedido) {
+    return this.pedidoStatusService.getCssColor(pedido);
+  }
+
+
+  pesquisa(busca: any): void{
+    if(!busca.value) return;
+    let p = this.pedidos.find(pedido => pedido.id.toString() === busca.value);
+    if(p && !this.pedidosId.includes(p['id'])){
+      this.resultadoBusca.push(p);
+      this.pedidosId.push(p['id']);
+    }
+  }
+
+  limparPesquisa(): void {
+    this.precoTotal = 0;
+    this.pedidosId = [];
+    this.resultadoBusca = [];
+  }
 }
