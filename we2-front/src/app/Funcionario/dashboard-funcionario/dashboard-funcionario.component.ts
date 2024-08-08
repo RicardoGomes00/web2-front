@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PaginaInicialFuncionarioComponent } from '../pagina-inicial-funcionario/pagina-inicial-funcionario.component';
+import { PaginaInicialFuncionarioComponent } from '../pedidos/pagina-inicial-funcionario/pagina-inicial-funcionario.component';
 import { RouterModule } from '@angular/router';
 
 @Component({

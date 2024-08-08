@@ -10,6 +10,17 @@ export enum PedidoStatus {
   FINALIZADO = 'finalizado'
 }
 
+export enum StatusPedido
+{
+    aberto              = 'aberto',
+    cancelado           = "cancelado",
+    rejeitado           = "rejeitado",
+    recolhido           = "recolhido",
+    aguardandoPagamento = "aguardando_pagamento",
+    pago                = "pago",
+    finalizado          = 'finalizado'
+}
+
 type RoupaQuantidade = Pick<Roupas, 'nome'> & {quantidade: number};
 
 export class Pedido {

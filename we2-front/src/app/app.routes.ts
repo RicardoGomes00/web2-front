@@ -4,8 +4,8 @@ import { AutocadastroComponent } from './Geral/autocadastro/autocadastro.compone
 import { OrderOnlineComponent } from './Cliente/pedido/order-online/order-online.component';
 import { ListagemPedidosComponent } from './Cliente/pedido/listagem-pedidos/listagem-pedidos.component';
 import { AprovacaoOrcamentoComponent } from './Cliente/pedido/aprovacao-orcamento/aprovacao-orcamento.component';
-import { PaginaInicialFuncionarioComponent } from './Funcionario/pagina-inicial-funcionario/pagina-inicial-funcionario.component';
-import { VisualizacaoDePedidosComponent } from './Funcionario/visualizacao-de-pedidos/visualizacao-de-pedidos.component';
+import { PaginaInicialFuncionarioComponent } from './Funcionario/pedidos/pagina-inicial-funcionario/pagina-inicial-funcionario.component';
+import { VisualizacaoDePedidosComponent } from './Funcionario/pedidos/visualizacao-de-pedidos/visualizacao-de-pedidos.component';
 import { PagamentoPedidoComponent } from './Cliente/pedido/pagamento-pedido/pagamento-pedido.component';
 import { RelatorioReceitasComponent } from './Funcionario/relatorios/relatorios-receitas/relatorio-receitas.component';
 import { RelatorioClientesComponent } from './Funcionario/relatorios/relatorios-clientes/relatorio-clientes.component';
